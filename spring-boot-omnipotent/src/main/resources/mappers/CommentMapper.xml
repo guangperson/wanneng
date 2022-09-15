@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.omnipotent.work.mapper.CommentMapper">
+  <resultMap id="BaseResultMap" type="com.omnipotent.work.entity.Comment">
+    <!--@mbg.generated-->
+    <!--@Table `comment`-->
+    <id column="cid" jdbcType="INTEGER" property="cid" />
+    <result column="comments" jdbcType="LONGVARCHAR" property="comments" />
+    <result column="comdate" jdbcType="TIMESTAMP" property="comdate" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="resid" jdbcType="INTEGER" property="resid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    cid, comments, comdate, `uid`, resid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from `comment`
+    where cid = #{cid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from `comment`
+    where cid = #{cid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.omnipotent.work.entity.Comment">
+    <!--@mbg.generated-->
+    insert into `comment` (cid, comments, comdate, 
+      `uid`, resid)
+    values (#{cid,jdbcType=INTEGER}, #{comments,jdbcType=LONGVARCHAR}, #{comdate,jdbcType=TIMESTAMP}, 
+      #{uid,jdbcType=INTEGER}, #{resid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.omnipotent.work.entity.Comment">
+    <!--@mbg.generated-->
+    insert into `comment`
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="comments != null">
+        comments,
+      </if>
+      <if test="comdate != null">
+        comdate,
+      </if>
+      <if test="uid != null">
+        `uid`,
+      </if>
+      <if test="resid != null">
+        resid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="comments != null">
+        #{comments,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="comdate != null">
+        #{comdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="resid != null">
+        #{resid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.omnipotent.work.entity.Comment">
+    <!--@mbg.generated-->
+    update `comment`
+    <set>
+      <if test="comments != null">
+        comments = #{comments,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="comdate != null">
+        comdate = #{comdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uid != null">
+        `uid` = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="resid != null">
+        resid = #{resid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.omnipotent.work.entity.Comment">
+    <!--@mbg.generated-->
+    update `comment`
+    set comments = #{comments,jdbcType=LONGVARCHAR},
+      comdate = #{comdate,jdbcType=TIMESTAMP},
+      `uid` = #{uid,jdbcType=INTEGER},
+      resid = #{resid,jdbcType=INTEGER}
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+</mapper>

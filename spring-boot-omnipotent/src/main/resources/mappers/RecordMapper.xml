@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.omnipotent.work.mapper.RecordMapper">
+  <resultMap id="BaseResultMap" type="com.omnipotent.work.entity.Record">
+    <!--@mbg.generated-->
+    <!--@Table record-->
+    <id column="rid" jdbcType="INTEGER" property="rid" />
+    <result column="resid" jdbcType="INTEGER" property="resid" />
+    <result column="flag" jdbcType="VARCHAR" property="flag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    rid, resid, flag
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from record
+    where rid = #{rid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from record
+    where rid = #{rid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.omnipotent.work.entity.Record">
+    <!--@mbg.generated-->
+    insert into record (rid, resid, flag
+      )
+    values (#{rid,jdbcType=INTEGER}, #{resid,jdbcType=INTEGER}, #{flag,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.omnipotent.work.entity.Record">
+    <!--@mbg.generated-->
+    insert into record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rid != null">
+        rid,
+      </if>
+      <if test="resid != null">
+        resid,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rid != null">
+        #{rid,jdbcType=INTEGER},
+      </if>
+      <if test="resid != null">
+        #{resid,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.omnipotent.work.entity.Record">
+    <!--@mbg.generated-->
+    update record
+    <set>
+      <if test="resid != null">
+        resid = #{resid,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null">
+        flag = #{flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where rid = #{rid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.omnipotent.work.entity.Record">
+    <!--@mbg.generated-->
+    update record
+    set resid = #{resid,jdbcType=INTEGER},
+      flag = #{flag,jdbcType=VARCHAR}
+    where rid = #{rid,jdbcType=INTEGER}
+  </update>
+</mapper>
