@@ -26,4 +26,17 @@ public class UserSericeImpl implements UserService {
         }
         return results.setMsg(Contants.LONGIN_ERROR.getMsg()).setCode(Contants.LONGIN_ERROR.getCode());
     }
+
+    @Override
+    public Results reg(User user) {
+        Results results = new Results();
+        User user1 = userMapper.selectByUsername(user);
+        if (Objects.nonNull(user1)) {
+            int i = userMapper.insertSelective(user);
+            if (i > 0) {
+                return results.setCode(Contants.REG_OK.getCode()).setMsg(Contants.REG_OK.getMsg());
+            }
+        }
+        return results.setMsg(Contants.REG_ERROR.getMsg()).setCode(Contants.REG_ERROR.getCode());
+    }
 }

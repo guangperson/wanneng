@@ -9,5 +9,5 @@ public interface UserService {
 
     Results login(User user);
 
-
+    Results reg(User user);
 }
