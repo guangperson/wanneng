@@ -39,7 +39,7 @@ public class VerificationCodeImage {
     //绘制线条，干扰线
     private void drawLine(BufferedImage img){
         //生成条数
-        int lineCount = 5;
+        int lineCount = 20;
         //获取画笔对象
         Graphics2D g = (Graphics2D) img.getGraphics();
         for (int i = 0; i < lineCount; i++) {

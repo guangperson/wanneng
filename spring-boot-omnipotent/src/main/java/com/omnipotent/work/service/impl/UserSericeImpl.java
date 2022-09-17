@@ -21,7 +21,7 @@ public class UserSericeImpl implements UserService {
         if (Objects.nonNull(user)) {
             User user1 = userMapper.selectByUsername(user);
             if (Objects.nonNull(user1)&&user1.getUsername().equals(user.getUsername())&&user1.getPassword().equals(user.getPassword())) {
-               return results.setData(user1).setMsg(Contants.LONGIN_OK.getMsg()).setCode(Contants.LONGIN_OK.getCode());
+               return results.setMsg(Contants.LONGIN_OK.getMsg()).setCode(Contants.LONGIN_OK.getCode());
             }
         }
         return results.setMsg(Contants.LONGIN_ERROR.getMsg()).setCode(Contants.LONGIN_ERROR.getCode());

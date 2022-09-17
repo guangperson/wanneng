@@ -15,6 +15,8 @@ public class RedisServiceImplTest {
     @Test
     public void setValue() {
         redisService.setValue("qqq","你好，世界！");
+        Object qqq = redisService.getValue("qqq");
+        System.out.println(qqq);
     }
 
     @Test
