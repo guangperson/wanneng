@@ -31,12 +31,14 @@ public class UserSericeImpl implements UserService {
     public Results reg(User user) {
         Results results = new Results();
         User user1 = userMapper.selectByUsername(user);
-        if (Objects.nonNull(user1)) {
+        if (!Objects.nonNull(user1)) {
             int i = userMapper.insertSelective(user);
             if (i > 0) {
                 return results.setCode(Contants.REG_OK.getCode()).setMsg(Contants.REG_OK.getMsg());
             }
+        } else {
+            return results.setMsg("用户已存在！").setCode(Contants.REG_ERROR.getCode());
         }
-        return results.setMsg(Contants.REG_ERROR.getMsg()).setCode(Contants.REG_ERROR.getCode());
+        return results.setMsg(Contants.REG_ERROR.getMsg()+"!请联系管理员！QQ群 943989865").setCode(Contants.REG_ERROR.getCode());
     }
 }

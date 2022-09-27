@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * spring boot 启动类
  * @author yuxue
- * @date 2019-12-06
+ * @date 2022-9-27
  */
 @SpringBootApplication
 @MapperScan("com.omnipotent.work.mapper")
